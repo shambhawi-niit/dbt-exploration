@@ -1,0 +1,12 @@
+version: 2
+models:
+  - name: atmdata_raw
+    description: This model casts the columns of the staging table into the required data types
+    columns:
+      - name: ATMTRANSID
+        tests:
+          - not_null
+      - name: ATMTRANSACTIONCODE
+        tests:
+          - accepted_values:
+              values: ['CSHWTD', 'POSRTN', 'BALENQ', 'ATMREV', 'POSPUR']
